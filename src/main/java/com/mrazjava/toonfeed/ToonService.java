@@ -1,27 +1,24 @@
 package com.mrazjava.toonfeed;
 
-import java.util.Date;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ToonService {
 
+    @Autowired
+    private List<ToonProvider> toonProviders;
+
+
     public List<ToonModel> getToons() {
-        return List.of(
-                ToonModel.builder()
-                    .title("foo")
-                    .publishDate(DateUtils.addDays(new Date(), -3))
-                    .build(),
-                ToonModel.builder()
-                    .title("bar")
-                    .publishDate(new Date())
-                    .pictureUrl("http://bar.com/baz.png")
-                    .webUrl("http://bar.com/baz")
-                    .build()
-                    
-        );        
+        
+        return toonProviders.stream()
+                .flatMap(tp -> tp.getToons().stream())
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
     }
 }

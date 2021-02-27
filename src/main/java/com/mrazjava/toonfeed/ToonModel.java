@@ -13,6 +13,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * A simple struct for cartoon information.
+ * 
+ * @author mrazjava
+ */
 @JsonInclude(Include.NON_NULL)
 @Builder
 @Data
