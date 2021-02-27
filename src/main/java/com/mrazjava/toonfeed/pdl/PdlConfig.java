@@ -21,7 +21,7 @@ import org.springframework.messaging.MessageHandler;
 public class PdlConfig { 
     
     @Bean
-    public IntegrationFlow feedFlow(
+    public IntegrationFlow pdlFlow(
             @Value("${toon.pdl.url}") Resource source,
             PdlTransformer transformer, 
             @Qualifier("PdlToonProvider") MessageHandler handler,
