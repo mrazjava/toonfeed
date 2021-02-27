@@ -2,3 +2,6 @@ toon:
   pdl:
     url: ${TOON_PDL_URL:http://feeds.feedburner.com/PoorlyDrawnLines}
     pullDelayMs: ${TOON_PDL_PULL_DELAY_MS:75}
+  xkcd:
+    url: ${TOON_XKCD_URL:https://xkcd.com/info.0.json}
+    url-by-id: ${TOON_XKCD_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}
