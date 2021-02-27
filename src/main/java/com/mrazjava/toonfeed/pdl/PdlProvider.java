@@ -19,12 +19,12 @@ import lombok.extern.slf4j.Slf4j;
  * @see <a href="http://feeds.feedburner.com/PoorlyDrawnLines">(P)oorly (D)rawn (L)ines</a>
  */
 @Slf4j
-@Component("PdlToonProvider")
-public class PdlToonProvider implements ToonProvider, MessageHandler {
+@Component("PdlProvider")
+public class PdlProvider implements ToonProvider, MessageHandler {
     
     private List<ToonModel> toons;
     
-    public PdlToonProvider() {
+    public PdlProvider() {
         toons = new LinkedList<>();
     }
 

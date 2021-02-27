@@ -24,7 +24,7 @@ public class PdlConfig {
     public IntegrationFlow pdlFlow(
             @Value("${toon.pdl.url}") Resource source,
             PdlTransformer transformer, 
-            @Qualifier("PdlToonProvider") MessageHandler handler,
+            @Qualifier("PdlProvider") MessageHandler handler,
             @Value("${toon.pdl.pullDelayMs:500}") long delay) {
 
         return IntegrationFlows
