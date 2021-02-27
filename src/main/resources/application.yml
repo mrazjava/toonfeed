@@ -5,3 +5,7 @@ toon:
   xkcd:
     url: ${TOON_XKCD_URL:https://xkcd.com/info.0.json}
     url-by-id: ${TOON_XKCD_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
