@@ -10,11 +10,14 @@ import com.mrazjava.toonfeed.ToonModel;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndEntry;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Transforms a syndicated payload (from PDL RSS feed) into a {@link ToonModel}.
  * 
  * @author mrazjava
  */
+@Slf4j
 @Component
 public class PdlTransformer extends AbstractPayloadTransformer<SyndEntry, ToonModel> {
 
@@ -23,6 +26,8 @@ public class PdlTransformer extends AbstractPayloadTransformer<SyndEntry, ToonMo
     @Override
     protected ToonModel transformPayload(SyndEntry payload) {
 
+        log.debug("fetched PDL payload: {}", payload);
+        
         return ToonModel.builder()
             .publishDate(extractPublishDate(payload))
             .title(extractTitle(payload))

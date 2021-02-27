@@ -12,13 +12,10 @@ import org.springframework.stereotype.Component;
 import com.mrazjava.toonfeed.ToonModel;
 import com.mrazjava.toonfeed.ToonProvider;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * @author mrazjava
  * @see <a href="http://feeds.feedburner.com/PoorlyDrawnLines">(P)oorly (D)rawn (L)ines</a>
  */
-@Slf4j
 @Component("PdlToonProvider")
 public class PdlToonProvider implements ToonProvider, MessageHandler {
     
@@ -36,7 +33,6 @@ public class PdlToonProvider implements ToonProvider, MessageHandler {
     @Override
     public void handleMessage(Message<?> message) throws MessagingException {
         ToonModel toon = (ToonModel)message.getPayload();
-        log.info("received: {}", toon);
         toons.add(toon);
     }
 
