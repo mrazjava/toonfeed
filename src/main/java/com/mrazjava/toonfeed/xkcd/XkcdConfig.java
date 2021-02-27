@@ -8,6 +8,11 @@ import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.messaging.MessageHandler;
 
+/**
+ * Configures DSL integration flow to pull XKCD data. Initialized on startup.
+ * 
+ * @author mrazjava
+ */
 @EnableIntegration
 @Configuration
 public class XkcdConfig {
