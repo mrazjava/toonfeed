@@ -10,4 +10,5 @@ toon:
 logging:
   level:
     root: INFO
+    com.mrazjava.toonfeed: INFO
     org.springframework: WARN

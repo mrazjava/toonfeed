@@ -23,7 +23,8 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class PdlTransformer extends AbstractPayloadTransformer<SyndEntry, ToonModel> {
 
-    private static final String HREF_ATTR = "href";
+    static final String HREF_ATTR = "href";
+    static final String SRC_ATTR = "src";
     
     @Override
     protected ToonModel transformPayload(SyndEntry payload) {
@@ -54,7 +55,7 @@ public class PdlTransformer extends AbstractPayloadTransformer<SyndEntry, ToonMo
             .findFirst()
             .map(SyndContent::getValue)
             .map(Jsoup::parse)
-            .map(doc -> doc.getElementsByAttribute(HREF_ATTR).first().absUrl(HREF_ATTR))
+            .map(doc -> doc.getElementsByAttribute(SRC_ATTR).first().absUrl(SRC_ATTR))
             .orElse(null);
     }
 
