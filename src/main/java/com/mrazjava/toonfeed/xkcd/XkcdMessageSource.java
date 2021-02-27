@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
 
-    private static final String TOKEN_ID = "~ID~";
+    public static final String TOKEN_ID = "~ID~";
     
     private static final int MAX_ITEMS_TO_FETCH = 10;
     
@@ -23,10 +23,10 @@ public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
     
     private int lastFetchedId;
     
-    @Value("${toon.xkcd.url}")
+    @Value("${toon.xkcd.fetch-url}")
     private String url;
     
-    @Value("${toon.xkcd.url-by-id}")
+    @Value("${toon.xkcd.fetch-url-by-id}")
     private String urlById;
         
     private RestTemplate restTemplate;

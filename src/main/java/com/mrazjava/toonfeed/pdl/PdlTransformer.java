@@ -13,9 +13,11 @@ import com.rometools.rome.feed.synd.SyndEntry;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Transforms a syndicated payload (from PDL RSS feed) into a {@link ToonModel}.
+ * Transforms a syndicated payload (from PDL RSS feed) into application 
+ * standardized {@link ToonModel}.
  * 
  * @author mrazjava
+ * @see <a href="http://feeds.feedburner.com/PoorlyDrawnLines">(P)oorly (D)rawn (L)ines</a>
  */
 @Slf4j
 @Component

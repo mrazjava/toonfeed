@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.pdl;
+package com.mrazjava.toonfeed.xkcd;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -15,20 +15,21 @@ import com.mrazjava.toonfeed.ToonProvider;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Collects PDL transformed toon data and exposes it.
+ * Collects XKCD transformed toon data and exposes it.
  * 
  * @author mrazjava
  */
 @Slf4j
-@Component("PdlProvider")
-public class PdlProvider implements ToonProvider, MessageHandler {
+@Component("XkcdProvider")
+public class XkcdProvider implements ToonProvider, MessageHandler {
     
     private List<ToonModel> toons;
     
-    public PdlProvider() {
+    
+    public XkcdProvider() {
         toons = new LinkedList<>();
     }
-
+    
     @Override
     public List<ToonModel> getToons() {
         return Collections.unmodifiableList(toons);
@@ -38,7 +39,7 @@ public class PdlProvider implements ToonProvider, MessageHandler {
     public void handleMessage(Message<?> message) throws MessagingException {
         ToonModel toon = (ToonModel)message.getPayload();
         log.info("handled: {}", toon);
-        toons.add(toon);
+        toons.add(toon);        
     }
 
 }

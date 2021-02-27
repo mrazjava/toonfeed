@@ -22,7 +22,7 @@ public class PdlConfig {
     
     @Bean
     public IntegrationFlow pdlFlow(
-            @Value("${toon.pdl.url}") Resource source,
+            @Value("${toon.pdl.fetch-url}") Resource source,
             PdlTransformer transformer, 
             @Qualifier("PdlProvider") MessageHandler handler,
             @Value("${toon.pdl.pullDelayMs:500}") long delay) {
