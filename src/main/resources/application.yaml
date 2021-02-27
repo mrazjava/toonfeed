@@ -1,0 +1,4 @@
+toon:
+  pdl:
+    url: ${TOON_PDL_URL:http://feeds.feedburner.com/PoorlyDrawnLines}
+    pullDelayMs: ${TOON_PDL_PULL_DELAY_MS:75}
