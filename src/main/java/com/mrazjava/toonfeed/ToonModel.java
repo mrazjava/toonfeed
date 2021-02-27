@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -15,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Builder
 @Data
 @Slf4j
-public class ToonModel {
+public class ToonModel implements Comparable<ToonModel> {
 
     private Date publishDate;
     
@@ -44,5 +46,20 @@ public class ToonModel {
             }
             return this;            
         }
+    }
+
+    @Override
+    public int compareTo(ToonModel that) {
+
+        if(this.publishDate == null && that.publishDate == null)
+            return 0;
+        
+        if(this.publishDate == null && that.publishDate != null)
+            return 1;
+        
+        if(this.publishDate != null && that.publishDate == null)
+            return -1;
+
+        return NumberUtils.compare(this.publishDate.getTime(), that.publishDate.getTime());
     }
 }
