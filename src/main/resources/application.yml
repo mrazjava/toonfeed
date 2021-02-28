@@ -20,6 +20,8 @@ logging:
     com.mrazjava.toonfeed: INFO
     # switch to DEBUG to snoop on execution dates
     com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO
+    # swtich to DEBUG to monitor PDL action
+    org.springframework.integration.feed.inbound.FeedEntryMessageSource: INFO
     # switch to DEBUG to monitor XKCD action
     com.mrazjava.toonfeed.xkcd.XkcdMessageSource: INFO
     sun.net.www.protocol.http.HttpURLConnection: INFO
