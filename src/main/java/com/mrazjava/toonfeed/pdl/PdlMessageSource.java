@@ -52,6 +52,6 @@ public class PdlMessageSource extends FeedEntryMessageSource {
     }
     
     private boolean isNewEntry(Date entryPublishDate) {
-        return lastPublishedDate != null && !lastPublishedDate.equals(entryPublishDate);
+        return lastPublishedDate != null && !lastPublishedDate.before(entryPublishDate);
     }
 }
