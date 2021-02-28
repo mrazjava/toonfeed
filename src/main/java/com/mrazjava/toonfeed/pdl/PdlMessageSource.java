@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Custom PDL RSS msg source for Spring DSL integration mostly based on Spring's 
  * {@link FeedEntryMessageSource}. Fetches first n entries up to ${toon.pdl.fetch-limit} 
- * and disregards the rest. After that, only pulls an entry if date is different from 
- * last processed entry.
+ * and disregards the rest. After that, pulls with longer delay and handles an entry 
+ * only if its published date is newer from the date of last processed entry.
  * 
  * @author mrazjava
  */
@@ -57,6 +57,6 @@ public class PdlMessageSource extends FeedEntryMessageSource {
     }
     
     private boolean isNewEntry(Date entryPublishDate) {
-        return lastPublishedDate != null && !lastPublishedDate.before(entryPublishDate);
+        return lastPublishedDate != null && lastPublishedDate.before(entryPublishDate);
     }
 }
