@@ -1,5 +1,6 @@
 package com.mrazjava.toonfeed.xkcd;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.mrazjava.toonfeed.AbstractToonProvider;
@@ -11,4 +12,13 @@ import com.mrazjava.toonfeed.AbstractToonProvider;
  */
 @Component("XkcdProvider")
 public class XkcdProvider extends AbstractToonProvider {
+
+    @Value("${toon.xkcd.fetch-limit}")
+    private int fetchLimit;    
+
+    
+    @Override
+    public int getFetchLimit() {
+        return fetchLimit;
+    }
 }

@@ -11,7 +11,7 @@ import org.springframework.messaging.MessagingException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class AbstractToonProvider implements ToonProvider, MessageHandler {
+public abstract class AbstractToonProvider implements ToonProvider, LimitedFetching, MessageHandler {
 
     protected List<ToonModel> toons = new LinkedList<>();
     

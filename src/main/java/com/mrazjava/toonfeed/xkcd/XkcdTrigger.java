@@ -41,7 +41,7 @@ public class XkcdTrigger extends AbstractToonfeedTrigger {
     }
 
     @Override
-    protected int getFetchLimit() {
+    public int getFetchLimit() {
         return fetchLimit;
     }
 }
