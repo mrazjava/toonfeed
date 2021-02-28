@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.mrazjava.toonfeed.AbstractToonfeedTrigger;
 
 /**
- * Controlls pulling duration from XKCD source. Initial set is fetched immediately with 
+ * Controls pulling duration from XKCD source. Initial set is fetched immediately with 
  * short in-between delay, then delay is substantially increased to only check for 
  * new data. See configuration.
  * 
