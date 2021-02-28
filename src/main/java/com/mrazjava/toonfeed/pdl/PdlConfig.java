@@ -12,7 +12,8 @@ import org.springframework.integration.feed.dsl.Feed;
 import org.springframework.messaging.MessageHandler;
 
 /**
- * Configures DSL integration flow to pull PDL RSS feed. Initialized on startup.
+ * Configures DSL integration flow to pull PDL RSS feed. Initialized on startup, then pulling with 
+ * slower frequency (see {@link PdlTrigger}).
  * 
  * @author mrazjava
  */
@@ -23,12 +24,12 @@ public class PdlConfig {
     @Bean
     public IntegrationFlow pdlFlow(
             @Value("${toon.pdl.fetch-url}") Resource source,
+            PdlTrigger trigger,
             PdlTransformer transformer, 
-            @Qualifier("PdlProvider") MessageHandler handler,
-            @Value("${toon.pdl.pullDelayMs:500}") long delay) {
+            @Qualifier("PdlProvider") MessageHandler handler) {
 
         return IntegrationFlows
-                .from(Feed.inboundAdapter(source, "PDL"), e -> e.poller(p -> p.fixedDelay(delay)))
+                .from(Feed.inboundAdapter(source, "pdl:inbound-channel-adapter"), e -> e.poller(p -> p.trigger(trigger)))
                 .transform(transformer)
                 .handle(handler)
                 .get();

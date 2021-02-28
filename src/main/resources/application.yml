@@ -1,14 +1,20 @@
 toon:
+  init-fetch-size: ${TOON_INIT_FETCH_SIZE:10}
   pdl:
     fetch-url: ${TOON_PDL_FETCH_URL:http://feeds.feedburner.com/PoorlyDrawnLines}
-    pullDelayMs: ${TOON_PDL_PULL_DELAY_MS:75}
+    # delay when pulling toons initially up to toon.init-fetch-size
+    pull-delay-ms: ${TOON_PDL_PULL_DELAY_MS:75}
+    # once toon.init-fetch-size is reached, pull is issued with this delay
+    pull-delay-min: ${TOON_PDL_PULL_DELAY_MIN:60}
   xkcd:
     fetch-url: ${TOON_XKCD_FETCH_URL:https://xkcd.com/info.0.json}
     fetch-url-by-id: ${TOON_XKCD_FETCH_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}
     web-url: ${TOON_XKCD_WEB_URL:https://xkcd.com/~ID~/}
-    pullDelayMs: ${TOON_XKCD_PULL_DELAY_MS:75}
+    pull-delay-ms: ${TOON_XKCD_PULL_DELAY_MS:75} # see PDL
+    pull-delay-min: ${TOON_XKCD_PULL_DELAY_MIN:60} # see PDL
 logging:
   level:
     root: INFO
     com.mrazjava.toonfeed: INFO
+    com.mrazjava.toonfeed.AbstractToonfeedTrigger: DEBUG
     org.springframework: WARN
