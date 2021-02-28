@@ -1,5 +1,8 @@
 toon:
   pdl:
+    # NOTE: PDL RSS feed is ordered from oldest publication date and so Spring DSL  
+    # reads it as such. Limiting fetch limit is OK, but setting it lower will  
+    # exclude most recent feeds.
     fetch-limit: ${TOON_PDL_FETCH_LIMIT:10}
     fetch-url: ${TOON_PDL_FETCH_URL:http://feeds.feedburner.com/PoorlyDrawnLines}
     # delay when pulling toons initially up to fetch-limit
@@ -22,6 +25,7 @@ logging:
     com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO
     # swtich to DEBUG to monitor PDL action
     org.springframework.integration.feed.inbound.FeedEntryMessageSource: INFO
+    com.mrazjava.toonfeed.pdl.PdlMessageSource: DEBUG
     # switch to DEBUG to monitor XKCD action
     com.mrazjava.toonfeed.xkcd.XkcdMessageSource: INFO
     sun.net.www.protocol.http.HttpURLConnection: INFO
