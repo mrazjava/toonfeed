@@ -11,8 +11,9 @@ toon:
     fetch-url: ${TOON_XKCD_FETCH_URL:https://xkcd.com/info.0.json}
     fetch-url-by-id: ${TOON_XKCD_FETCH_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}
     web-url: ${TOON_XKCD_WEB_URL:https://xkcd.com/~ID~/}
-    pull-delay-ms: ${TOON_XKCD_PULL_DELAY_MS:75} # see PDL
-    pull-delay-min: ${TOON_XKCD_PULL_DELAY_MIN:60} # see PDL
+    # see PDL for additional pull comments
+    pull-delay-ms: ${TOON_XKCD_PULL_DELAY_MS:150} # (pulling XKCD JSON is slower, so delay larger)
+    pull-delay-min: ${TOON_XKCD_PULL_DELAY_MIN:60}
 logging:
   level:
     root: WARN
