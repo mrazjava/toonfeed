@@ -16,5 +16,8 @@ logging:
   level:
     root: WARN
     com.mrazjava.toonfeed: INFO
-    com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO # switch to DEBUG to snoop on execution dates
-    sun.net.www.protocol.http.HttpURLConnection: INFO # switch to DEBUG to monitor XKCD action
+    # switch to DEBUG to snoop on execution dates
+    com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO
+    # switch to DEBUG to monitor XKCD action
+    com.mrazjava.toonfeed.xkcd.XkcdMessageSource: INFO
+    sun.net.www.protocol.http.HttpURLConnection: INFO

@@ -27,7 +27,7 @@ public abstract class AbstractToonfeedTrigger implements Trigger {
     
     protected int count = 0;
     
-    @Value("${toon.init-fetch-size:10}")
+    @Value("${toon.init-fetch-size}")
     private int initFetchSize;
     
     @Override

@@ -1,25 +1,34 @@
 package com.mrazjava.toonfeed.xkcd;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.integration.endpoint.AbstractMessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
- * Custom XKCD msg source for Spring DSL integration. Fetches 10 most recent 
- * JSON payloads starting with the current one.
+ * Custom XKCD msg source for Spring DSL integration. Fetches ${toon.init-fetch-size} 
+ * most recent JSON payloads starting with the current one. After that, only pulls 
+ * the most recent one (if it had changed).
  * 
  * @author mrazjava
  */
+@Slf4j
 @Component
 public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
 
     public static final String TOKEN_ID = "~ID~";
     
-    private static final int MAX_ITEMS_TO_FETCH = 10;
+    @Value("${toon.init-fetch-size}")
+    private int initFetchSize;
     
     private int count;
+    
+    private int firstFetchedId;
     
     private int lastFetchedId;
     
@@ -44,23 +53,38 @@ public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
 
     @Override
     protected XkcdSchema doReceive() {
-        return lastFetchedId == 0 ? getFirst() : getNext(); 
+        count++;
+        return lastFetchedId == 0 || isInitialFetchComplete()  ? getFirst() : getNext();
     }
     
     private XkcdSchema getFirst() {
+
         XkcdSchema toon = restTemplate.getForObject(url, XkcdSchema.class);
-        lastFetchedId = toon.getId();
-        return toon;
+        if(firstFetchedId != Optional.ofNullable(toon).map(XkcdSchema::getId).orElse(0)) {
+            log.debug("[#{}] new XKCD toon: {}", count, toon);
+            // this is a new current toon, either first pull or was updated
+            firstFetchedId = lastFetchedId = toon.getId();
+            return toon;
+        }
+        // we've seen this top toon, so don't push the msg
+        log.trace("[#{}] no new toon published yet", count);
+        return null;
     }
     
     private XkcdSchema getNext() {
-        if(++count > MAX_ITEMS_TO_FETCH-1) {
-            return null;
-        }
+        
         // XKCD toons seem to be ordered by ID ("num") in descending order
         XkcdSchema toon = restTemplate.getForObject(urlById.replace(TOKEN_ID, Integer.toString(lastFetchedId-1)), XkcdSchema.class);
         lastFetchedId = toon.getId();
+        log.debug("[#{}] new (next) XKCD toon: {}", count, toon);
         return toon;
+    }
+    
+    /**
+     * @return {@code true} if initial batch of toons has been fetched
+     */
+    private boolean isInitialFetchComplete() {
+        return count > initFetchSize;
     }
 
     public void reset() {
