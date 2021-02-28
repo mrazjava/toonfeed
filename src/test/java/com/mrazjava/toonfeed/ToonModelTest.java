@@ -10,6 +10,9 @@ import java.util.List;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author mrazjava
+ */
 public class ToonModelTest {
 
     @Test
