@@ -1,5 +1,5 @@
 # Toonfeed
-<p align="center"><img src="cover.png" width=256 alt="'Toons 'r Fun!"/>'Toons 'r Fun!</p>
+<p align="center"><img src="cover.png" width=256 alt="'Toons 'r Fun!"/>&nbps;&nbps;&nbps;'Toons 'r Fun!</p>
 
 A goofy aggregator of cartoon information that demonstrates some practical concepts from 
 Spring's built-in messaging capabilities.
