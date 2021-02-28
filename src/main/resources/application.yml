@@ -14,7 +14,7 @@ toon:
     pull-delay-min: ${TOON_XKCD_PULL_DELAY_MIN:60} # see PDL
 logging:
   level:
-    root: INFO
+    root: WARN
     com.mrazjava.toonfeed: INFO
-    com.mrazjava.toonfeed.AbstractToonfeedTrigger: DEBUG
-    org.springframework: WARN
+    com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO # switch to DEBUG to snoop on execution dates
+    sun.net.www.protocol.http.HttpURLConnection: INFO # switch to DEBUG to monitor XKCD action
