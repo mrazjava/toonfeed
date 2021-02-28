@@ -16,10 +16,10 @@ pulled data is converted into internal application model, combined and sorted by
 date with most recent records first. Result is exposed over a simple REST endpoint on a default 
 path @ localhost:8080.
 
-Once initial fetch is complete on application startup, periodic check for latest update 
-is issued and results are updated. So if this app is ran for a long enough period of time 
-that remote sources publish new data, it will eventually fetch the latest records and 
-update its endpoint by removing the oldest publications to make room for the new ones.
+Once initial fetch is complete, periodic check for latest updates is issued, and the results 
+are updated. If this app is ran for a long enough period of time that would allow a remote 
+source to publish new data, it will eventually fetch latest data and update its endpoint, 
+while removing the oldest publication(s) to remain within the fetch limit.
 
 Both sources are pulled using `org.springframework.integration.dsl.IntegrationFlow`.
 
