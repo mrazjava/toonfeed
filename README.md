@@ -1,10 +1,9 @@
 # Toonfeed
 A goofy aggregator of cartoon information that demonstrates some practical concepts from 
-Spring built-in messaging capabilities.
+Spring's built-in messaging capabilities.
 
 ## Origins
-This project gave me opportunity to experiment with Spring Integration, Messaging and Control Bus; 
-parts of Spring I haven't used much up to now.
+This project gave me opportunity to experiment with [Spring Integration](https://spring.io/projects/spring-integration), and its messaging and control bus concepts.
 
 ## Overview
 Aggregates cartoon data from two sources:
