@@ -12,8 +12,8 @@ Aggregates cartoon data from two sources:
 * [XKCD](https://xkcd.com/) ([JSON](https://xkcd.com/json.html))
 
 On startup each source is pulled according to configuration (see `application.yml`), then 
-pulled data is combined into internal application model and sorted by publication date with 
-most recent records first. Result is exposed over a simple REST endpoint on a default 
+pulled data is converted into internal application model, combined and sorted by publication 
+date with most recent records first. Result is exposed over a simple REST endpoint on a default 
 path @ localhost:8080.
 
 Once initial fetch is complete on application startup, periodic check for latest update 
