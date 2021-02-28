@@ -32,7 +32,7 @@ public abstract class AbstractToonProvider implements ToonProvider, LimitedFetch
     }
 
     @Override
-    public void handleMessage(Message<?> message) throws MessagingException {
+    public synchronized void handleMessage(Message<?> message) throws MessagingException {
         
         ToonModel toon = (ToonModel)message.getPayload();
         
