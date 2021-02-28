@@ -40,13 +40,18 @@ public class PdlMessageSource extends FeedEntryMessageSource {
         
         count++;
         SyndEntry entry = super.doReceive();
-        Date entryPublishDate = entry.getPublishedDate();
         
-        if(count < fetchLimit || isNewEntry(entryPublishDate)) {
-            lastPublishedDate = entryPublishDate;
-            log.debug("[#{}] new PDL toon: {}", count, entry);
-            return entry;
+        if(entry != null) {
+            Date entryPublishDate = entry.getPublishedDate();
+            
+            if(count <= fetchLimit || isNewEntry(entryPublishDate)) {
+                lastPublishedDate = entryPublishDate;
+                log.debug("[#{}] new PDL toon: {}", count, entry);
+                return entry;
+            }
         }
+        
+        log.trace("[#{}] no new toon published yet", count);
         
         return null;
     }
