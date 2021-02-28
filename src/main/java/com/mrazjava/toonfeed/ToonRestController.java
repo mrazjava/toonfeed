@@ -24,7 +24,7 @@ public class ToonRestController {
     public ResponseEntity<List<ToonModel>> getToons() {
         
         List<ToonModel> toons = toonService.getToons();
-        log.info("fetched {} toons", toons.size());
+        log.info("found {} 'toons", toons.size());
         return ResponseEntity.ok(toons);
     }
 }
