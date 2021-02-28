@@ -21,7 +21,7 @@ are updated. If this app is ran for a long enough period of time that would allo
 source to publish new data, it will eventually fetch latest data and update its endpoint, 
 while removing the oldest publication(s) to remain within the fetch limit.
 
-Both sources are pulled using `org.springframework.integration.dsl.IntegrationFlow`.
+Sources are pulled using `org.springframework.integration.dsl.IntegrationFlow`.
 
 ## Quick Start
 ```
