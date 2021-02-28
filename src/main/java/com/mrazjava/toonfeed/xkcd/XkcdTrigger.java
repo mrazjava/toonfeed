@@ -26,11 +26,6 @@ public class XkcdTrigger extends AbstractToonfeedTrigger {
         
 
     @Override
-    protected String getTriggerName() {
-        return XkcdTrigger.class.getSimpleName();
-    }
-
-    @Override
     protected int getInitialDelayMs() {
         return delayMs;
     }

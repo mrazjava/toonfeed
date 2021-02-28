@@ -24,10 +24,6 @@ public class PdlTrigger extends AbstractToonfeedTrigger {
     @Value("${toon.pdl.pull-delay-min:15}")
     private int delayMin;
 
-    @Override
-    protected String getTriggerName() {
-        return PdlTrigger.class.getSimpleName();
-    }
 
     @Override
     protected int getInitialDelayMs() {

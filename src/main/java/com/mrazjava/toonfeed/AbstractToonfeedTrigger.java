@@ -36,8 +36,10 @@ public abstract class AbstractToonfeedTrigger implements Trigger, LimitedFetchin
         
         if(lastExecuted == null) {
             nextExecution = DateUtils.addMilliseconds(new Date(), getInitialDelayMs());
-            log.debug("[{}] first execution scheduled for: {}",
-                    getTriggerName(), DateFormatUtils.format(nextExecution, DATE_PATTERN));
+            if(log.isDebugEnabled()) {
+                log.debug("[{}] first execution scheduled for: {}",
+                        getClass().getSimpleName(), DateFormatUtils.format(nextExecution, DATE_PATTERN));
+            }
             return nextExecution;
         }
         
@@ -45,15 +47,15 @@ public abstract class AbstractToonfeedTrigger implements Trigger, LimitedFetchin
                 DateUtils.addMinutes(lastExecuted, getPullDelayMin()) : 
                 DateUtils.addMilliseconds(lastExecuted, getInitialDelayMs());            
 
-        log.debug("[{}] last executed: {} | next execution: {}", 
-                getTriggerName(), 
-                DateFormatUtils.format(lastExecuted, DATE_PATTERN), 
-                DateFormatUtils.format(nextExecution, DATE_PATTERN));
+        if(log.isDebugEnabled()) {
+            log.debug("[{}] last executed: {} | next execution: {}", 
+                    getClass().getSimpleName(), 
+                    DateFormatUtils.format(lastExecuted, DATE_PATTERN), 
+                    DateFormatUtils.format(nextExecution, DATE_PATTERN));
+        }
         
         return nextExecution;
     }
-    
-    protected abstract String getTriggerName();
 
     protected abstract int getInitialDelayMs();
     
