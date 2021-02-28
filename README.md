@@ -11,7 +11,7 @@ Aggregates cartoon data from two sources:
 * [PoorlyDrawnLines](http://feeds.feedburner.com/PoorlyDrawnLines) (RSS feed)
 * [XKCD](https://xkcd.com/) ([JSON](https://xkcd.com/json.html))
 
-On startup each source is pulled according to configuration (see `[application.yml](https://github.com/mrazjava/toonfeed/blob/master/src/main/resources/application.yml)`), then 
+On startup each source is pulled according to configuration (see [application.yml](https://github.com/mrazjava/toonfeed/blob/master/src/main/resources/application.yml)), then 
 pulled data is converted into internal application model, combined and sorted by publication 
 date with most recent records first. Result is exposed over a simple REST endpoint on a default 
 path @ localhost:8080.
