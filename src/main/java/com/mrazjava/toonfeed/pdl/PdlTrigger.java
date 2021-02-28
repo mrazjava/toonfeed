@@ -15,6 +15,9 @@ import com.mrazjava.toonfeed.AbstractToonfeedTrigger;
 @Component
 public class PdlTrigger extends AbstractToonfeedTrigger {
 
+    @Value("${toon.pdl.fetch-limit}")
+    private int fetchLimit;
+
     @Value("${toon.pdl.pull-delay-ms:500}")
     private int delayMs;
 
@@ -34,5 +37,10 @@ public class PdlTrigger extends AbstractToonfeedTrigger {
     @Override
     protected int getPullDelayMin() {
         return delayMin;
+    }
+
+    @Override
+    protected int getFetchLimit() {
+        return fetchLimit;
     }
 }

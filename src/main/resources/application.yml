@@ -1,12 +1,13 @@
 toon:
-  init-fetch-size: ${TOON_INIT_FETCH_SIZE:10}
   pdl:
+    fetch-limit: ${TOON_PDL_FETCH_LIMIT:10}
     fetch-url: ${TOON_PDL_FETCH_URL:http://feeds.feedburner.com/PoorlyDrawnLines}
-    # delay when pulling toons initially up to toon.init-fetch-size
+    # delay when pulling toons initially up to fetch-limit
     pull-delay-ms: ${TOON_PDL_PULL_DELAY_MS:75}
-    # once toon.init-fetch-size is reached, pull is issued with this delay
+    # once fetch-limit is reached, pull is issued with this delay
     pull-delay-min: ${TOON_PDL_PULL_DELAY_MIN:60}
   xkcd:
+    fetch-limit: ${TOON_XKCD_FETCH_LIMIT:10}
     fetch-url: ${TOON_XKCD_FETCH_URL:https://xkcd.com/info.0.json}
     fetch-url-by-id: ${TOON_XKCD_FETCH_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}
     web-url: ${TOON_XKCD_WEB_URL:https://xkcd.com/~ID~/}

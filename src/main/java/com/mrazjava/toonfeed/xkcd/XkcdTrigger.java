@@ -15,11 +15,15 @@ import com.mrazjava.toonfeed.AbstractToonfeedTrigger;
 @Component
 public class XkcdTrigger extends AbstractToonfeedTrigger {
 
+    @Value("${toon.xkcd.fetch-limit}")
+    private int fetchLimit;
+
     @Value("${toon.xkcd.pull-delay-ms:500}")
     private int delayMs;
 
     @Value("${toon.xkcd.pull-delay-min:15}")
     private int delayMin;
+        
 
     @Override
     protected String getTriggerName() {
@@ -36,4 +40,8 @@ public class XkcdTrigger extends AbstractToonfeedTrigger {
         return delayMin;
     }
 
+    @Override
+    protected int getFetchLimit() {
+        return fetchLimit;
+    }
 }

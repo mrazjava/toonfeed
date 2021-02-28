@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.TriggerContext;
 
@@ -27,9 +26,6 @@ public abstract class AbstractToonfeedTrigger implements Trigger {
     
     protected int count = 0;
     
-    @Value("${toon.init-fetch-size}")
-    private int initFetchSize;
-    
     @Override
     public Date nextExecutionTime(TriggerContext triggerContext) {
 
@@ -45,7 +41,7 @@ public abstract class AbstractToonfeedTrigger implements Trigger {
             return nextExecution;
         }
         
-        nextExecution = count > initFetchSize ? 
+        nextExecution = count > getFetchLimit() ? 
                 DateUtils.addMinutes(lastExecuted, getPullDelayMin()) : 
                 DateUtils.addMilliseconds(lastExecuted, getInitialDelayMs());            
 
@@ -62,4 +58,6 @@ public abstract class AbstractToonfeedTrigger implements Trigger {
     protected abstract int getInitialDelayMs();
     
     protected abstract int getPullDelayMin();
+    
+    protected abstract int getFetchLimit();
 }

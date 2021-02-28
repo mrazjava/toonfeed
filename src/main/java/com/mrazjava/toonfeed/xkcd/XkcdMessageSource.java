@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Custom XKCD msg source for Spring DSL integration. Fetches ${toon.init-fetch-size} 
+ * Custom XKCD msg source for Spring DSL integration. Fetches ${toon.xkcd.fetch-limit} 
  * most recent JSON payloads starting with the current one. After that, only pulls 
  * the most recent one (if it had changed).
  * 
@@ -23,8 +23,8 @@ public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
 
     public static final String TOKEN_ID = "~ID~";
     
-    @Value("${toon.init-fetch-size}")
-    private int initFetchSize;
+    @Value("${toon.xkcd.fetch-limit}")
+    private int fetchLimit;
     
     private int count;
     
@@ -84,7 +84,7 @@ public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
      * @return {@code true} if initial batch of toons has been fetched
      */
     private boolean isInitialFetchComplete() {
-        return count > initFetchSize;
+        return count > fetchLimit;
     }
 
     public void reset() {
