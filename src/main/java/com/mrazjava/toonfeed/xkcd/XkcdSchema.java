@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
+/**
+ * Compatible model for XKCD JSON published schema.
+ * 
+ * @author mrazjava
+ * @see <a href="https://xkcd.com/json.html">XKCD JSON</a>
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class XkcdSchema {
