@@ -1,0 +1,7 @@
+/src
+.pom.xml
+/.git
+/.settings
+.project
+.classpath
+target/classes

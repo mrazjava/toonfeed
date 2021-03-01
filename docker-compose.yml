@@ -1,0 +1,17 @@
+version: '3'
+services:
+  toonfeed:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      TOON_PDL_FETCH_LIMIT: 10
+      TOON_PDL_FETCH_URL: http://feeds.feedburner.com/PoorlyDrawnLines
+      TOON_PDL_PULL_DELAY_MS: 75
+      TOON_PDL_PULL_DELAY_MIN: 60
+      TOON_XKCD_FETCH_LIMIT: 10
+      TOON_XKCD_FETCH_URL: https://xkcd.com/info.0.json
+      TOON_XKCD_FETCH_URL_BY_ID: https://xkcd.com/~ID~/info.0.json
+      TOON_XKCD_WEB_URL: https://xkcd.com/~ID~/
+      TOON_XKCD_PULL_DELAY_MS: 150
+      TOON_XKCD_PULL_DELAY_MIN: 60

@@ -26,12 +26,15 @@ while removing the oldest publication(s) to remain within the fetch limit.
 Sources are pulled using `org.springframework.integration.dsl.IntegrationFlow`.
 
 ## Quick Start
+Directly with maven:
+
 ```
 mvn clean spring-boot:run
 ```
 
-or
+or packaged with docker:
 
 ```
+mvn clean package
 docker-compose up
 ```
