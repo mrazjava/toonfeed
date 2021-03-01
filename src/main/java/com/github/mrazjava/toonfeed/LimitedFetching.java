@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed;
+package com.github.mrazjava.toonfeed;
 
 /**
  * Limit fetching of a resource to certain bounds.

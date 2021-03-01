@@ -1,9 +1,9 @@
-package com.mrazjava.toonfeed.pdl;
+package com.github.mrazjava.toonfeed.pdl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.mrazjava.toonfeed.AbstractToonProvider;
+import com.github.mrazjava.toonfeed.AbstractToonProvider;
 
 /**
  * Collects PDL transformed toon data and exposes it.

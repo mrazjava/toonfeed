@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed;
+package com.github.mrazjava.toonfeed;
 
 import java.util.Collections;
 import java.util.LinkedList;

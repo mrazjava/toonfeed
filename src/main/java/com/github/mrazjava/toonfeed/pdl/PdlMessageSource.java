@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.pdl;
+package com.github.mrazjava.toonfeed.pdl;
 
 import java.util.Date;
 

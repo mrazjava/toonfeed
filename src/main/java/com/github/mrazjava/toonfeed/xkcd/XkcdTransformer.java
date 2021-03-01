@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.xkcd;
+package com.github.mrazjava.toonfeed.xkcd;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.integration.transformer.AbstractPayloadTransformer;
 import org.springframework.stereotype.Component;
 
-import com.mrazjava.toonfeed.ToonModel;
+import com.github.mrazjava.toonfeed.ToonModel;
 
 import lombok.extern.slf4j.Slf4j;
 

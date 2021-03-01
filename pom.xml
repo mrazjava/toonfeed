@@ -8,7 +8,7 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mrazjava</groupId>
+	<groupId>com.github.mrazjava</groupId>
 	<artifactId>toonfeed</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>toonfeed</name>

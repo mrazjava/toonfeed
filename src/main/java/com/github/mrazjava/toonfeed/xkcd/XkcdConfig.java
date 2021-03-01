@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.pdl;
+package com.github.mrazjava.toonfeed.xkcd;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -9,21 +9,21 @@ import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.messaging.MessageHandler;
 
 /**
- * Configures DSL integration flow to pull PDL RSS feed. Initialized on startup, then pulling with 
- * slower frequency (see {@link PdlTrigger}).
+ * Configures DSL integration flow to pull XKCD data. Initialized on startup, then pulling with 
+ * slower frequency (see {@link XkcdTrigger}).
  * 
  * @author mrazjava
  */
 @EnableIntegration
 @Configuration
-public class PdlConfig { 
-    
+public class XkcdConfig {
+
     @Bean
-    public IntegrationFlow pdlFlow(
-            PdlMessageSourceSpec msgSourceSpec,
-            PdlTrigger trigger,
-            PdlTransformer transformer, 
-            @Qualifier("PdlProvider") MessageHandler handler) {
+    public IntegrationFlow xkcdFlow(
+            XkcdMessageSourceSpec msgSourceSpec,
+            XkcdTrigger trigger,
+            XkcdTransformer transformer,
+            @Qualifier("XkcdProvider") MessageHandler handler) {
 
         return IntegrationFlows
                 .from(msgSourceSpec, e -> e.poller(p -> p.trigger(trigger)))

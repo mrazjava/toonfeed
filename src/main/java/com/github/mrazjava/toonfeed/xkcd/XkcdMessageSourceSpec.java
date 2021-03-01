@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.xkcd;
+package com.github.mrazjava.toonfeed.xkcd;
 
 import org.springframework.integration.dsl.MessageSourceSpec;
 import org.springframework.stereotype.Component;

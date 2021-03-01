@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.xkcd;
+package com.github.mrazjava.toonfeed.xkcd;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

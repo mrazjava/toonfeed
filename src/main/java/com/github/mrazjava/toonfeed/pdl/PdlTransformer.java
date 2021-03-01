@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed.pdl;
+package com.github.mrazjava.toonfeed.pdl;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.jsoup.Jsoup;
 import org.springframework.integration.transformer.AbstractPayloadTransformer;
 import org.springframework.stereotype.Component;
 
-import com.mrazjava.toonfeed.ToonModel;
+import com.github.mrazjava.toonfeed.ToonModel;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndEntry;
 

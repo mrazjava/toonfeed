@@ -20,12 +20,12 @@ toon:
 logging:
   level:
     root: WARN
-    com.mrazjava.toonfeed: INFO
+    com.github.mrazjava.toonfeed: INFO
     # switch to DEBUG to snoop on execution dates
-    com.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO
+    com.github.mrazjava.toonfeed.AbstractToonfeedTrigger: INFO
     # swtich to DEBUG/TRACE to monitor PDL action
     org.springframework.integration.feed.inbound.FeedEntryMessageSource: INFO
-    com.mrazjava.toonfeed.pdl.PdlMessageSource: INFO
+    com.github.mrazjava.toonfeed.pdl.PdlMessageSource: INFO
     # switch to DEBUG/TRACE to monitor XKCD action
-    com.mrazjava.toonfeed.xkcd.XkcdMessageSource: INFO
+    com.github.mrazjava.toonfeed.xkcd.XkcdMessageSource: INFO
     sun.net.www.protocol.http.HttpURLConnection: INFO

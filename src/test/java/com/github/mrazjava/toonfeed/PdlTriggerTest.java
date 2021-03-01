@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed;
+package com.github.mrazjava.toonfeed;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,7 +14,7 @@ import org.springframework.scheduling.TriggerContext;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.mrazjava.toonfeed.pdl.PdlTrigger;
+import com.github.mrazjava.toonfeed.pdl.PdlTrigger;
 
 /**
  * @author mrazjava

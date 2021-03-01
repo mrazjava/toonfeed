@@ -15,6 +15,6 @@ COPY target/toonfeed.jar /opt/app/
 
 USER ${USER}
 ENTRYPOINT ["java", "-cp", "/opt/app/toonfeed.jar"]
-CMD ["-Dloader.main=com.mrazjava.toonfeed.ToonfeedApplication", "org.springframework.boot.loader.PropertiesLauncher"]
+CMD ["-Dloader.main=com.github.mrazjava.toonfeed.ToonfeedApplication", "org.springframework.boot.loader.PropertiesLauncher"]
 
 EXPOSE 8080

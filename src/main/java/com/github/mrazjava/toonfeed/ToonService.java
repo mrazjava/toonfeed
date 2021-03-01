@@ -1,4 +1,4 @@
-package com.mrazjava.toonfeed;
+package com.github.mrazjava.toonfeed;
 
 import java.util.Comparator;
 import java.util.List;
