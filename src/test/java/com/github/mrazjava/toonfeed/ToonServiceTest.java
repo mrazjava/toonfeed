@@ -14,10 +14,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.github.mrazjava.toonfeed.ToonModel;
-import com.github.mrazjava.toonfeed.ToonProvider;
-import com.github.mrazjava.toonfeed.ToonService;
-
 /**
  * @author mrazjava
  */
