@@ -14,8 +14,6 @@ import org.springframework.scheduling.TriggerContext;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.github.mrazjava.toonfeed.pdl.PdlTrigger;
-
 /**
  * @author mrazjava
  */

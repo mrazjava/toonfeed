@@ -13,7 +13,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.github.mrazjava.toonfeed.ToonModel;
-import com.github.mrazjava.toonfeed.pdl.PdlProvider;
 
 @TestPropertySource(properties = {
         "toon.pdl.fetch-limit: 1",
