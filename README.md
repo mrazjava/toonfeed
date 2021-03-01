@@ -38,3 +38,8 @@ or packaged with docker:
 mvn clean package
 docker-compose up
 ```
+
+## Screenshot
+
+> *App running in Firefox*
+<img src="screenshot.png" />
