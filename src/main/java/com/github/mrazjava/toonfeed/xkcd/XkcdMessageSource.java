@@ -88,6 +88,6 @@ public class XkcdMessageSource extends AbstractMessageSource<XkcdSchema> {
     }
 
     public void reset() {
-        lastFetchedId = count = 0;
+        firstFetchedId = lastFetchedId = count = 0;
     }
 }
