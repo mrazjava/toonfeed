@@ -4,7 +4,7 @@
 A goofy aggregator of cartoon information that demonstrates some practical concepts from 
 Spring's built-in messaging capabilities.
 
-## Origins
+## Why?
 This project gave me opportunity to experiment with [Spring Integration](https://spring.io/projects/spring-integration), and its messaging and control bus concepts.
 
 ## Overview
