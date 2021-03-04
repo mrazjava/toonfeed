@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  * Provides collected cartoon data from some source for further consumption. The 
  * data is collected up to {@link #getFetchLimit()}. Once limit is reached but  
  * more data is consumed, the oldest data will be removed to make room for the 
- * newly consumed data while respecting the {@code #getFetchLimit()}.
+ * newly consumed data while respecting the {@code getFetchLimit()}.
  * 
  * Data is collected by consumption of Spring {@link Message} that can be fed by 
  * any means supported by the framework (eg: Spring DSL integration).
