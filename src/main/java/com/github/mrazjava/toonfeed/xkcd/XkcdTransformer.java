@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class XkcdTransformer extends AbstractPayloadTransformer<XkcdSchema, ToonModel> {
 
-    static final String DATE_PATTERN = "YYYY-MM-DD";
+    static final String DATE_PATTERN = "yyyy-MM-dd";
     
     @Value("${toon.xkcd.web-url}")
     private String webUrl;
