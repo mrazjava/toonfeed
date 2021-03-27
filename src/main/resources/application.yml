@@ -1,6 +1,6 @@
 toon:
   pdl:
-    enabled: false
+    enabled: true
     # NOTE: PDL RSS feed is ordered from oldest publication date and so Spring DSL  
     # reads it as such. Limiting fetch will work, but setting it lower will exclude 
     # most recent feeds from a pull in the first place.
