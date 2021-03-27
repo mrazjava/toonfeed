@@ -1,5 +1,6 @@
 toon:
   pdl:
+    enabled: false
     # NOTE: PDL RSS feed is ordered from oldest publication date and so Spring DSL  
     # reads it as such. Limiting fetch will work, but setting it lower will exclude 
     # most recent feeds from a pull in the first place.
@@ -10,6 +11,7 @@ toon:
     # once fetch-limit is reached, periodic pull for latest data is issued with this delay
     pull-delay-min: ${TOON_PDL_PULL_DELAY_MIN:60}
   xkcd:
+    enabled: true
     fetch-limit: ${TOON_XKCD_FETCH_LIMIT:10}
     fetch-url: ${TOON_XKCD_FETCH_URL:https://xkcd.com/info.0.json}
     fetch-url-by-id: ${TOON_XKCD_FETCH_URL_BY_ID:https://xkcd.com/~ID~/info.0.json}

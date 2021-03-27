@@ -1,6 +1,7 @@
 package com.github.mrazjava.toonfeed.pdl;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.config.EnableIntegration;
@@ -18,6 +19,7 @@ import org.springframework.messaging.MessageHandler;
 @Configuration
 public class PdlConfig { 
     
+    @ConditionalOnProperty("toon.pdl.enabled")
     @Bean
     public IntegrationFlow pdlFlow(
             PdlMessageSourceSpec msgSourceSpec,
