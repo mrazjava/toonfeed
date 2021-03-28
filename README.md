@@ -11,6 +11,7 @@ This project gave me opportunity to experiment with [Spring Integration](https:/
 Aggregates cartoon data from two sources:
 
 * [PoorlyDrawnLines](http://feeds.feedburner.com/PoorlyDrawnLines) (RSS feed)
+* [ComicsRss](https://www.comicsrss.com) (RSS feed; only selected subfeeds)
 * [XKCD](https://xkcd.com/) ([JSON](https://xkcd.com/json.html))
 
 On startup each source is pulled according to [configuration](https://github.com/mrazjava/toonfeed/blob/master/src/main/resources/application.yml), then 
