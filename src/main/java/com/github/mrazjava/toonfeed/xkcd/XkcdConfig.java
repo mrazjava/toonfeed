@@ -33,8 +33,8 @@ public class XkcdConfig extends AbstractToonConfiguration {
     @Autowired
     private XkcdProperties properties;
     
-    @Bean
-    public IntegrationFlow xkcdFlow(
+    @Bean("XkcdFlow")
+    public IntegrationFlow flow(
             XkcdMessageSourceSpec msgSourceSpec,
             @Qualifier(BEAN_TRIGGER) Trigger trigger,
             XkcdTransformer transformer,
