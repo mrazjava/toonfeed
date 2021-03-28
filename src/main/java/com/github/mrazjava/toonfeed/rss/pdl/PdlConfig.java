@@ -30,9 +30,6 @@ public class PdlConfig extends AbstractToonConfiguration {
     static final String BEAN_PROVIDER = "PdlProvider";
     static final String BEAN_MSGSRC = "PdlMsgSrc";
     static final String BEAN_TRIGGER = "PdlTrigger";
-
-    @Autowired
-    private PdlTransformer transformer;
     
     @Autowired
     private PdlProperties properties;
@@ -42,6 +39,7 @@ public class PdlConfig extends AbstractToonConfiguration {
     public IntegrationFlow flow(
             @Qualifier(BEAN_MSGSRC) RssMessageSource msgSource,
             @Qualifier(BEAN_TRIGGER) Trigger trigger,
+            PdlTransformer transformer,
             @Qualifier(BEAN_PROVIDER) MessageHandler handler) {
 
         return integrationFlow(new RssMessageSourceSpec(msgSource), trigger, transformer, handler);
