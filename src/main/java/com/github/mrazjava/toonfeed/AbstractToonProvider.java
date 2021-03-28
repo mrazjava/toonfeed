@@ -37,7 +37,7 @@ public abstract class AbstractToonProvider implements ToonProvider, LimitedFetch
         ToonModel toon = (ToonModel)message.getPayload();
         
         if(log.isInfoEnabled()) {
-            log.info("[{}] handling: {}", getClass().getSimpleName(), toon);
+            log.info("[{}] handling: {}", getProviderName(), toon);
         }
         
         if(toons.size() == getFetchLimit()) {
@@ -46,5 +46,9 @@ public abstract class AbstractToonProvider implements ToonProvider, LimitedFetch
         }
         
         toons.add(toon);
+    }
+    
+    protected String getProviderName() {
+        return getClass().getSimpleName();
     }
 }

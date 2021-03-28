@@ -14,6 +14,7 @@ import org.springframework.messaging.Message;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.github.mrazjava.toonfeed.ToonModel;
+import com.github.mrazjava.toonfeed.rss.pdl.PdlTransformer;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndEntry;
 

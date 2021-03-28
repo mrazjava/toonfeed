@@ -43,3 +43,8 @@ docker-compose up
 
 > *App running in Firefox*
 <img src="screenshot.png" />
+
+## Notes
+Additional integrations should be easy. Here is list of potential sources:
+
+* https://www.comicsrss.com

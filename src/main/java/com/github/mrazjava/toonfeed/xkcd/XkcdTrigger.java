@@ -3,7 +3,7 @@ package com.github.mrazjava.toonfeed.xkcd;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.github.mrazjava.toonfeed.AbstractToonfeedTrigger;
+import com.github.mrazjava.toonfeed.AbstractToonTrigger;
 
 /**
  * Controls pulling duration from XKCD source. Initial set is fetched immediately with 
@@ -13,7 +13,7 @@ import com.github.mrazjava.toonfeed.AbstractToonfeedTrigger;
  * @author mrazjava
  */
 @Component
-public class XkcdTrigger extends AbstractToonfeedTrigger {
+public class XkcdTrigger extends AbstractToonTrigger {
 
     @Value("${toon.xkcd.fetch-limit}")
     private int fetchLimit;

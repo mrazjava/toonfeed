@@ -19,6 +19,20 @@ toon:
     # see PDL for additional pull comments
     pull-delay-ms: ${TOON_XKCD_PULL_DELAY_MS:150} # (pulling XKCD JSON is slower, so delay larger)
     pull-delay-min: ${TOON_XKCD_PULL_DELAY_MIN:60}
+  birdfeed:
+    fetch-limit: ${TOON_BIRDFEED_FETCH_LIMIT:10}
+    fetch-url: ${TOON_BIRDFEED_URL:https://thebirdfeed.org/feed/}
+    pull-delay-ms: ${TOON_BIRDFEED_PULL_DELAY_MS:75}
+    pull-delay-min: ${TOON_BIRDFEED_PULL_DELAY_MIN:60}
+  comicsrss:
+    archie:
+      enabled: true
+      fetch-limit: ${TOON_COMICSRSS_ARCHIE_FETCH_LIMIT:10}
+      fetch-url: ${TOON_COMICSRSS_ARCHIE_URL:https://www.comicsrss.com/rss/archie.rss}
+    annie:
+      enabled: true
+      fetch-limit: ${TOON_COMICSRSS_ANNIE_FETCH_LIMIT:10}
+      fetch-url: ${TOON_COMICSRSS_ANNIE_URL:https://www.comicsrss.com/rss/annie.rss}
 logging:
   level:
     root: WARN

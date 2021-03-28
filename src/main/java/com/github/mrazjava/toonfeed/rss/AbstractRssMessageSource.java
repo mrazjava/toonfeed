@@ -1,18 +1,17 @@
-package com.github.mrazjava.toonfeed.pdl;
+package com.github.mrazjava.toonfeed.rss;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.integration.feed.inbound.FeedEntryMessageSource;
-import org.springframework.stereotype.Component;
 
+import com.github.mrazjava.toonfeed.LimitedFetching;
 import com.rometools.rome.feed.synd.SyndEntry;
 
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Custom PDL RSS msg source for Spring DSL integration mostly based on Spring's 
+ * Custom toon RSS msg source for Spring DSL integration mostly based on Spring's 
  * {@link FeedEntryMessageSource}. Fetches first n entries up to ${toon.pdl.fetch-limit} 
  * and disregards the rest. After that, feeds subsequent entries on the bus only if 
  * its published date is newer from the date of last processed entry.
@@ -20,19 +19,15 @@ import lombok.extern.slf4j.Slf4j;
  * @author mrazjava
  */
 @Slf4j
-@Component
-public class PdlMessageSource extends FeedEntryMessageSource {
-
-    @Value("${toon.pdl.fetch-limit}")
-    private int fetchLimit;
+public abstract class AbstractRssMessageSource extends FeedEntryMessageSource implements LimitedFetching {
     
     private int count = 0;
     
     private Date lastPublishedDate;
 
-
-    public PdlMessageSource(@Value("${toon.pdl.fetch-url}") Resource pdlSource) {
-        super(pdlSource, "pdl:inbound-channel-adapter");
+    
+    public AbstractRssMessageSource(Resource feedResource, String metadataKey) {
+        super(feedResource, metadataKey);
     }
 
     @Override
@@ -44,9 +39,9 @@ public class PdlMessageSource extends FeedEntryMessageSource {
         if(entry != null) {
             Date entryPublishDate = entry.getPublishedDate();
             
-            if(count <= fetchLimit || isNewEntry(entryPublishDate)) {
+            if(count <= getFetchLimit() || isNewEntry(entryPublishDate)) {
                 lastPublishedDate = entryPublishDate;
-                log.debug("[#{}] new PDL toon: {}", count, entry);
+                log.debug("[{}] - #{} new PDL toon: {}", getClass().getSimpleName(), count, entry);
                 return entry;
             }
         }

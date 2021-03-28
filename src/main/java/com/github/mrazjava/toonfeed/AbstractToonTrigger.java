@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author mrazjava
  */
 @Slf4j
-public abstract class AbstractToonfeedTrigger implements Trigger, LimitedFetching {
+public abstract class AbstractToonTrigger implements Trigger, LimitedFetching {
 
     public static final String DATE_PATTERN = "yyyy-MM-dd.HH.mm.ss.SS";
     
